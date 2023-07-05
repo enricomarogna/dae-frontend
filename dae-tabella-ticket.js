@@ -156,7 +156,6 @@
     const cells = Array.from(document.querySelectorAll('table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th'));
     cells.forEach(cell => cell.style.verticalAlign = 'middle'); // Allinea il testo della cella al centro verticalmente
 
-
     // Animazione lampeggiante per le righe con data di scadenza superata
     const dateCells = Array.from(document.querySelectorAll('table > tbody > tr > td:nth-child(4)')); // Ottieni tutte le celle della colonna Data di scadenza
     dateCells.forEach(cell => { // Per ogni cella della colonna Data di scadenza
@@ -191,7 +190,7 @@
             //             color: inherit;
             //         }
             //     }
-    
+
             //     tr.blinking-animation {
             //         animation: blinking 2s infinite;
             //     }
@@ -203,5 +202,5 @@
             row.style.color = 'red'; // Modifica il colore del testo della riga in rosso
         }
     });
-  
+
 })();
