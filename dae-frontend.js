@@ -203,42 +203,5 @@
             row.style.color = 'red'; // Modifica il colore del testo della riga in rosso
         }
     });
-
-
-    // ==========================================================================================
-    // Inserisci un form di ricerca prima della tabella che cerchi in tutte le colonne della tabella 
-    const searchForm = document.createElement('form');
-    searchForm.innerHTML = `
-    <div id="search-form-navbar" class="input-group mb-3">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Cerca" aria-label="Cerca" aria-describedby="button-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Cerca</button>
-            </div>
-        </div>
-    </div>
-    `;
-    searchForm.addEventListener('submit', e => {
-        e.preventDefault();
-        const search = e.target.querySelector('input').value.toLowerCase();
-        rows.forEach(row => {
-            const cells = Array.from(row.cells);
-            const found = cells.some(cell => cell.textContent.toLowerCase().includes(search));
-            if (found) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    }
-    );
-    table.before(searchForm);
-
-    // includi bootstrap
-    const bootstrap = document.createElement('link');
-    bootstrap.rel = 'stylesheet';
-    bootstrap.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css';
-    document.head.appendChild(bootstrap);
-    // ==========================================================================================
   
 })();
