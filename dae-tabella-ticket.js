@@ -112,14 +112,16 @@
         const linkCell = row.cells[row.cells.length - 1]; // Ottieni l'ultima cella della riga
         const link = linkCell.querySelector('a'); // Ottieni il link
         link.setAttribute('target', '_self'); // Imposta l'attributo "target" del link a "_self"
-        // linkCell.innerHTML = `<button style="background-color: #008A00; color: #FFFFFF; padding: 5px 10px; border: none; border-radius: 4px; cursor: pointer;">${link.textContent}</button>`; // Modifica il contenuto della cella con un button
-        linkCell.innerHTML = `<button style="background-color: #008A00; color: #FFFFFF; padding: 5px 10px; border: none; border-radius: 4px; cursor: pointer;">Apri in DAE</button>`; // Modifica il contenuto della cella con un button
-        const button = linkCell.querySelector('button'); // Ottieni il button
-        button.addEventListener('click', (event) => { // Al click sul button
+        link.setAttribute('class', 'btn btn-primary'); // Imposta l'attributo "class" del link a "btn btn-primary"
+        link.setAttribute('role', 'button'); // Imposta l'attributo "role" del link a "button"
+        link.innerHTML = 'Apri in DAE'; // Modifica il contenuto del link
+        linkCell.style.textAlign = 'center'; // Allinea il testo della cella al centro orizzontalmente
+        // imposta il target del link in base al fatto che sia stato premuto il tasto centrale del mouse o il tasto Ctrl (Windows) o CMD (Mac)
+        link.addEventListener('click', (event) => { // Al click sul link
             if (event.button === 1 || (event.ctrlKey || event.metaKey)) { // Se è stato premuto il tasto centrale del mouse o il tasto Ctrl (Windows) o CMD (Mac)
-                window.open(link.href, '_blank'); // Apri il link in una nuova scheda
+                link.setAttribute('target', '_blank'); // Imposta l'attributo "target" del link a "_blank"
             } else {
-                link.click(); // Apri il link nella stessa scheda
+                link.setAttribute('target', '_self'); // Imposta l'attributo "target" del link a "_self"
             }
         });
 
