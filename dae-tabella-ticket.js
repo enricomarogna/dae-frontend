@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Modifica tabella ticket 1.0.0
+// @name         Modifica tabella ticket
 // @namespace    EnricoMarogna
 // @updateURL    https://github.com/enricomarogna/dae-frontend/blob/main/dae-tabella-ticket.js
 // @downloadURL  https://github.com/enricomarogna/dae-frontend/blob/main/dae-tabella-ticket.js
