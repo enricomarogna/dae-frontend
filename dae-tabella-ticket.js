@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Modifica tabella ticket
 // @namespace    EnricoMarogna
-// @updateURL    https://github.com/enricomarogna/dae-frontend/
+// @updateURL    https://github.com/enricomarogna/dae-frontend/blob/main/dae-tabella-ticket.js
 // @downloadURL  https://github.com/enricomarogna/dae-frontend/blob/main/dae-tabella-ticket.js
 // @version      1.0
 // @description  Modifica la tabella dei ticket su https://dae.4sparks-dev.it/
