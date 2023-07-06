@@ -2,7 +2,7 @@
 // @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system
-// @version      1.0.3
+// @version      1.0.4
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @grant        none
@@ -112,7 +112,7 @@
         const linkCell = row.cells[row.cells.length - 1]; // Ottieni l'ultima cella della riga
         const link = linkCell.querySelector('a'); // Ottieni il link
         link.setAttribute('target', '_self'); // Imposta l'attributo "target" del link a "_self"
-        link.setAttribute('class', 'btn btn-primary'); // Imposta l'attributo "class" del link a "btn btn-primary"
+        link.setAttribute('class', 'btn btn-sm btn-primary'); // Imposta l'attributo "class" del link a "btn btn-primary"
         link.setAttribute('role', 'button'); // Imposta l'attributo "role" del link a "button"
         link.innerHTML = 'Apri in DAE'; // Modifica il contenuto del link
         linkCell.style.textAlign = 'center'; // Allinea il testo della cella al centro orizzontalmente
