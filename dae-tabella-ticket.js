@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Modifica tabella ticket
 // @namespace    EnricoMarogna
-// @version      1.0.1
+// @version      1.0.2
 // @description  Modifica la tabella dei ticket su https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/
 // @grant        none
