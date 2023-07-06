@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name         Modifica tabella ticket
-// @namespace    EnricoMarogna
-// @version      1.0.2
-// @description  Modifica la tabella dei ticket su https://dae.4sparks-dev.it/
+// @name         DAE with Super Power
+// @author       Enrico Marogna
+// @namespace    dae-ticketing-system
+// @version      1.0.3
+// @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @grant        none
 // ==/UserScript==
-
 (function () {
     'use strict';
 
@@ -205,4 +205,37 @@
         }
     });
 
+})();
+
+
+// ==UserScript==
+// @name         Calcola somma minuti effettivi
+// @match        https://dae.4sparks-dev.it/report/reportPerData
+// ==/UserScript==
+(function() {
+    'use strict';
+
+    // Ottieni la tabella
+    var table = document.querySelector('tbody');
+
+    // Calcola la somma dei minuti effettivi
+    var totalMinutes = 0;
+    var rows = table.querySelectorAll('tr');
+    for (var i = 1; i < rows.length; i++) {
+        var row = rows[i];
+        var minutesCell = row.querySelector('td:last-child');
+        var minutes = parseInt(minutesCell.textContent);
+        if (!isNaN(minutes)) {
+            totalMinutes += minutes;
+        }
+    }
+
+    // Calcola il totale in ore
+    var totalHours = Math.floor(totalMinutes / 60);
+    var remainingMinutes = totalMinutes % 60;
+
+    // Crea una nuova riga con il totale in ore
+    var newRow = document.createElement('tr');
+    newRow.innerHTML = '<td colspan="5"></td><td>' + totalHours + ' ore ' + remainingMinutes + ' minuti</td>';
+    table.appendChild(newRow);
 })();
