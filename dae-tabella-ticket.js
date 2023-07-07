@@ -2,7 +2,7 @@
 // @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system
-// @version      1.3.1
+// @version      1.3.2
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -17,7 +17,6 @@ if (window.location.href.startsWith("https://dae.4sparks-dev.it/")) {
     }
     )();
 }
-
 
 if (window.location.href === "https://dae.4sparks-dev.it/") {
     (function () {
@@ -211,6 +210,18 @@ if (window.location.href.startsWith('https://dae.4sparks-dev.it/apri_ticket?id='
         const container = document.querySelector('.container.body-content');
         container.appendChild(footer);
 
+        // il titolo h3 della pagina ha questa struttura "24658:La tua licenza ESET sta per scadere."
+        const h3 = document.querySelector('h3');
+        const titleParts = h3.textContent.split(':');
+        const ticketNumber = titleParts[0].trim();
+        h3.outerHTML = `
+        <div class="ticket-title" style="margin:10px 0;">
+            <a href="https://4sparkshelp.zendesk.com/agent/tickets/${ticketNumber}" target="_blank" class="btn btn-warning btn-sm">Apri ticket ${ticketNumber} su Zendesk</a>
+            </br>
+            <span class="fs-4">${ticketNumber} - ${titleParts.slice(1).join(':')}</span>
+        </div>
+        `;
+
         // Minuti effettivi di gestione
         const divs = document.querySelectorAll('div');
         divs.forEach(div => {
@@ -227,6 +238,15 @@ if (window.location.href.startsWith('https://dae.4sparks-dev.it/apri_ticket?id='
             }
         }
         );
+
+        // Aggiungi alla classe "".zd-cooment p" "overflow-wrap: anywhere"
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .zd-comment p {
+                overflow-wrap: anywhere;
+            }
+        `;
+        document.head.appendChild(style);
 
     })();
 }
