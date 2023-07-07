@@ -2,7 +2,7 @@
 // @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system
-// @version      1.3.3
+// @version      1.3.4
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -222,20 +222,22 @@ if (window.location.href.startsWith('https://dae.4sparks-dev.it/apri_ticket?id='
         </div>
         `;
 
-        // Minuti effettivi di gestione
-        const divs = document.querySelectorAll('div');
-        divs.forEach(div => {
-            if (div.textContent.startsWith('Minuti consuntivati:')) {
-                // se div.textContent.substring(21) non è vuoto, 0 o NaN
-                if (div.textContent.substring(21) && div.textContent.substring(21) !== '0' && !isNaN(div.textContent.substring(21))) {
-                    const minutes = parseInt(div.textContent.substring(21)); // Ottieni i minuti effettivi
-                    const hours = Math.floor(minutes / 60); // Ottieni le ore
-                    const minutes2 = minutes % 60; // Ottieni i minuti
-                    div.textContent = 'Consuntivazione: ' + div.textContent.substring(21) + ' min // ' + hours + 'h ' + minutes2 + 'm'; // Modifica il testo del div
-                }
-            }
-        }
-        );
+        // // Minuti effettivi di gestione
+        // const divs = document.querySelectorAll('div');
+        // divs.forEach(div => {
+        //     if (div.textContent.startsWith('Minuti consuntivati:')) {
+        //         // se div.textContent.substring(21) non è vuoto, 0 o NaN
+        //         if (div.textContent.substring(21) && div.textContent.substring(21) !== '0' && !isNaN(div.textContent.substring(21))) {
+        //             const minutes = parseInt(div.textContent.substring(21)); // Ottieni i minuti effettivi
+        //             const hours = Math.floor(minutes / 60); // Ottieni le ore
+        //             const minutes2 = minutes % 60; // Ottieni i minuti
+        //             div.textContent = 'Consuntivazione: ' + div.textContent.substring(21) + ' min // ' + hours + 'h ' + minutes2 + 'm'; // Modifica il testo del div
+        //         } else {
+        //             div.textContent = 'Consuntivazione: 0 min';
+        //         }
+        //     }
+        // }
+        // );
 
         // Aggiungi alla classe "".zd-cooment p" "overflow-wrap: anywhere"
         const style = document.createElement('style');
