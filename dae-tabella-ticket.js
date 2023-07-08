@@ -2,7 +2,7 @@
 // @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system
-// @version      1.4.0
+// @version      1.4.1
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -201,6 +201,7 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
         const aggiornaDiv = document.createElement('div'); // Creazione del div
         aggiornaDiv.id = 'aggiorna-zendesk'; // Assegnazione dell'id al div
         aggiornaDiv.style.display = 'flow-root'; // Modifica il display del div in flow-root
+        aggiornaButton.classList.add('btn' ,'btn-success', 'btn-sm'); // Aggiunta delle classi CSS al div
         aggiornaButton.parentNode.insertBefore(aggiornaDiv, aggiornaButton); // Inserimento del div prima del button
         aggiornaButton.style.float = 'left'; // Modifica il float del button in left
         aggiornaDiv.appendChild(aggiornaButton); // Inserimento del button nel div
