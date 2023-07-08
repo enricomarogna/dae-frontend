@@ -2,12 +2,13 @@
 // @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system
-// @version      1.3.4
+// @version      1.3.5
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
 // @match        https://dae.4sparks-dev.it/apri_ticket?id=*
 // @match        https://dae.4sparks-dev.it/report/reportPerData
+// @icon64       data:image/webp;base64,UklGRpIDAABXRUJQVlA4IIYDAAAQFACdASpWAFYAPjEYi0OiIaESuVyIIAMEsoBp5id2Z80qFt4DbyXYnvFn7XftvmWNE/wye0fds4d/P+wA6DP8APUm+J/3b8w7kFhSekj/Y+Vz8e/t//A9wn+Sfz3/Pdgf0Pf1QHpR0O2hrSi9iELXdUsi7btXMml8quF2VhQ4HHpVzfRdgF7G+WV08Y9c6mXw/Fz80r3vep/6089uyuIetv87gwVk0AQAAP77/yn/9pZ/1LP+pZ+/d+t/s0TeJeQ1Za6eWX/0C6/lLvl3H7HNaoN8Dw/seo5Y6Kupy5K/9DAOv4cN4tKayaE0HkDNX7ritdS/Lrr5k75ULO5Gm86uj/RY003m5s5gJ1+/L9NuNFygYSh06KmlOiHa+gY2uf2N6tByiGlsec2CznTyJuhJkQEv9DH/8MsQXqwH6xNs+tH8sB0uiN5jOzjOY0MjJU/53zJymjo03oY5r/v+eaPOYVzdWWZvEBGi33T2l0nbwa8ew19Dz7BSc7eqcuVFk8bu5DmXS7obFWX+Iyu36kyFfuNn/+F7x9WVqYy//jfuVMTt5j6m75eHunmq4Nd9v7ztF35yGcE5miQtKt7odUoB195Clf+YwFGm1sONBJ0voryQXz2UP9Sirmb16MFjNemEY2SVfpOXI7Ch3VZ+uAAWwnZicXDo5v/cxQWciOrUMP7Hl/8API/mfZREDBJ0sQ5cTHxDPuv547tTU5pcV6yA+wyaw+svOz603KQu964vcmcrLj2VN8hLbdQ67S5FkrGESsVDrtlYwMOZsSv5ZfUr3cq424zEqDVP0k81neyMf8dE/x23VAoGzcjK3EURe6IXQBFti2r35Z98qs15kK9gxa9gC78U5OgMxvngEknxNvCI2kD8LxgJJZhfhePvp/K7JWUlTaK7PqV64hv5DV05r25flXYMExw/jMB3+EsJkOt/wfxQ6xdcrYoaiB6CVRDxA6F69A0nkU8JAR3BVRLraoicQtqHXtzkqFT2BQqbD2fOAQvLn3bpk5p03nJRPwmvip9oTWxqTPNG/LMb77/yS7w9zOrUxxdizSw+h/N15M/tA6QqL5Vrt9yG+jf0BK3ZeZBlnUIz/+A7TSH0kG+vAgG9d3ypv+W+2u24SKSNCy3aB3+VQHplEZ48JnPhQkrUQ0q1XTGQhFkGN+/eiNQ88xAV3kciSpfnTVTBKJ3jjw22t4AAAA==
 // @grant        none
 // ==/UserScript==
 
