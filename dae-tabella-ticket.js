@@ -2,7 +2,7 @@
 // @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system
-// @version      1.3.5
+// @version      1.4.0
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -195,6 +195,25 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
                 row.style.color = 'red'; // Modifica il colore del testo della riga in rosso
             }
         });
+
+        // Sposta l'input con id "MainContent_btnAggiorna" in un div con id "aggiorna-zendesk"
+        const aggiornaButton = document.querySelector('#MainContent_btnAggiorna'); // Ottieni il button
+        const aggiornaDiv = document.createElement('div'); // Creazione del div
+        aggiornaDiv.id = 'aggiorna-zendesk'; // Assegnazione dell'id al div
+        aggiornaDiv.style.display = 'flow-root'; // Modifica il display del div in flow-root
+        aggiornaButton.parentNode.insertBefore(aggiornaDiv, aggiornaButton); // Inserimento del div prima del button
+        aggiornaButton.style.float = 'left'; // Modifica il float del button in left
+        aggiornaDiv.appendChild(aggiornaButton); // Inserimento del button nel div
+
+        // Button per aprire un nuovo ticket Zendesk
+        const nuovoTicketLink = document.createElement('a'); // Creazione del link
+        nuovoTicketLink.classList.add('btn', 'btn-warning', 'btn-sm'); // Aggiunta delle classi CSS al link
+        nuovoTicketLink.textContent = 'Nuovo Ticket Zendesk'; // Aggiunta del testo al link
+        nuovoTicketLink.href = 'https://4sparkshelp.zendesk.com/agent/tickets/new/1'; // Aggiunta dell'href al link
+        nuovoTicketLink.target = '_blank'; // Aggiunta del target al link
+        nuovoTicketLink.style.float = 'right'; // Modifica il float del link in right
+        aggiornaDiv.appendChild(nuovoTicketLink); // Inserimento del link nel div
+
     })();
 }
 
