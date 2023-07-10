@@ -2,7 +2,7 @@
 // @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system
-// @version      1.4.1
+// @version      1.4.2
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -168,7 +168,7 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
             const now = new Date(); // Ottieni la data attuale
             const diff = now - date; // Calcola la differenza tra la data attuale e la data di scadenza
             const hours = diff / 1000 / 60 / 60; // Calcola le ore di differenza
-            if (hours > 24 && !solved) { // Se le ore di differenza sono maggiori di 24 e la segnalazione non è risolta
+            if (hours > 48 && !solved) { // Se le ore di differenza sono maggiori di 48 e la segnalazione non è risolta
                 const row = cell.closest('tr'); // Ottieni la riga
                 row.style.fontWeight = 'bold'; // Modifica il font-weight della riga in bold
                 // Creazione della regola CSS per l'animazione di lampeggio
