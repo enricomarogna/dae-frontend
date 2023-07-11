@@ -2,7 +2,7 @@
 // @name         DAE with Super Power [DEV]
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system-dev
-// @version      1.5.0
+// @version      1.5.1
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -292,7 +292,7 @@ if (window.location.href.startsWith('https://dae.4sparks-dev.it/apri_ticket?id='
         prendiInCaricoDiv.style.display = 'flow-root';
         // inserisci nel div con id "prendi-in-carico" un link a con href #
         const prendiInCaricoLink = document.createElement('a');
-        prendiInCaricoLink.href = 'mailto:enrico.marogna@4sparks.it?subject=Escalation%20ticket%20' + ticketNumber + '%20-%20' + titleParts.slice(1).join(':') + '&body=Ciao,%0A%0Achiedo%20supporto%20per%20il%20ticket%20' + ticketNumber + ':%0A%0A';
+        prendiInCaricoLink.href = 'mailto:enrico.marogna@4sparks.it?cc=davidesimone.rosa@gmail.com&subject=Escalation%20ticket%20' + ticketNumber + '%20-%20' + titleParts.slice(1).join(':') + '&body=Ciao,%0A%0Achiedo%20supporto%20per%20il%20ticket%20' + ticketNumber + ':%0A%0A';
         prendiInCaricoLink.textContent = 'Escalation via Mail';
         prendiInCaricoLink.classList.add('btn', 'btn-info');
         prendiInCaricoLink.style.float = 'right';
