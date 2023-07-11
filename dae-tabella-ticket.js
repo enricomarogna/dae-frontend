@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         DAE with Super Power
+// @name         DAE with Super Power [DEV]
 // @author       Enrico Marogna
-// @namespace    dae-ticketing-system
-// @version      1.4.2
+// @namespace    dae-ticketing-system-dev
+// @version      1.5.1
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -167,8 +167,11 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
             const date = new Date(cell.textContent.substring(6, 10), cell.textContent.substring(3, 5) - 1, cell.textContent.substring(0, 2), cell.textContent.substring(11, 13), cell.textContent.substring(14, 16), cell.textContent.substring(17, 19));
             const now = new Date(); // Ottieni la data attuale
             const diff = now - date; // Calcola la differenza tra la data attuale e la data di scadenza
-            const hours = diff / 1000 / 60 / 60; // Calcola le ore di differenza
-            if (hours > 48 && !solved) { // Se le ore di differenza sono maggiori di 48 e la segnalazione non è risolta
+
+            const workingDays = getWorkingDays(date, now); // Calcola il numero di giorni lavorativi trascorsi
+            const hours = workingDays * 24; // Calcola il numero di ore lavorative trascorse
+
+            if (hours > 48 && !solved) {
                 const row = cell.closest('tr'); // Ottieni la riga
                 row.style.fontWeight = 'bold'; // Modifica il font-weight della riga in bold
                 // Creazione della regola CSS per l'animazione di lampeggio
@@ -193,6 +196,20 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
                 document.head.appendChild(style); // Aggiunta della regola CSS all'head del documento
                 row.classList.add('blinking-animation'); // Aggiunta della classe CSS blinking-animation alla riga
                 row.style.color = 'red'; // Modifica il colore del testo della riga in rosso
+            }
+            // Funzione per calcolare il numero di giorni lavorativi tra due date
+            function getWorkingDays(startDate, endDate) {
+                let workingDays = 0; // Inizializzazione del numero di giorni lavorativi a 0
+                let currentDate = new Date(startDate); // Inizializzazione della data corrente alla data di inizio
+            
+                while (currentDate <= endDate) { // Finché la data corrente è minore o uguale alla data di fine
+                const dayOfWeek = currentDate.getDay(); // Ottieni il giorno della settimana della data corrente
+                if (dayOfWeek !== 0 && dayOfWeek !== 6) { // Se il giorno della settimana non è sabato o domenica
+                    workingDays++; // Incrementa il numero di giorni lavorativi
+                }
+                currentDate.setDate(currentDate.getDate() + 1); // Incrementa la data corrente di un giorno
+                }
+                return workingDays; // Ritorna il numero di giorni lavorativi
             }
         });
 
@@ -268,6 +285,19 @@ if (window.location.href.startsWith('https://dae.4sparks-dev.it/apri_ticket?id='
             }
         `;
         document.head.appendChild(style);
+
+        // assegna al div superiore all'inpunt con id "MainContent_btnPrendiInCarico", l'id "prendi-in-carico"
+        const prendiInCaricoDiv = document.querySelector('#MainContent_btnPrendiInCarico').parentNode;
+        prendiInCaricoDiv.id = 'prendi-in-carico';
+        prendiInCaricoDiv.style.display = 'flow-root';
+        // inserisci nel div con id "prendi-in-carico" un link a con href #
+        const prendiInCaricoLink = document.createElement('a');
+        prendiInCaricoLink.href = 'mailto:enrico.marogna@4sparks.it?cc=davidesimone.rosa@gmail.com&subject=Escalation%20ticket%20' + ticketNumber + '%20-%20' + titleParts.slice(1).join(':') + '&body=Ciao,%0A%0Achiedo%20supporto%20per%20il%20ticket%20' + ticketNumber + ':%0A%0A';
+        prendiInCaricoLink.textContent = 'Escalation via Mail';
+        prendiInCaricoLink.classList.add('btn', 'btn-info');
+        prendiInCaricoLink.style.float = 'right';
+        prendiInCaricoDiv.appendChild(prendiInCaricoLink);
+
 
     })();
 }
