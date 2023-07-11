@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         DAE with Super Power [DEV]
+// @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system-dev
-// @version      1.5.1
+// @version      1.5.2
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
