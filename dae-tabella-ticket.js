@@ -2,7 +2,7 @@
 // @name         DAE with Super Power [DEV]
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system-dev
-// @version      1.5.2
+// @version      1.6.0
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -231,6 +231,25 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
         nuovoTicketLink.target = '_blank'; // Aggiunta del target al link
         nuovoTicketLink.style.float = 'right'; // Modifica il float del link in right
         aggiornaDiv.appendChild(nuovoTicketLink); // Inserimento del link nel div
+
+        // Campo di ricerca ticket
+        const searchInput = document.createElement('input'); // Creazione dell'input
+        searchInput.classList.add('form-control', 'form-control-sm'); // Aggiunta delle classi CSS all'input
+        searchInput.placeholder = 'Cerca ticket, esempio 12345'; // Aggiunta del placeholder all'input
+        searchInput.style.float = 'right'; // Modifica il float dell'input in right
+        searchInput.style.width = '250px'; // Modifica la larghezza dell'input in 200px
+        searchInput.style.marginRight = '10px'; // Modifica il margin-right dell'input in 10px
+        searchInput.addEventListener('keyup', function(event) { // Aggiunta dell'event listener keyup all'input
+            if (event.key === 'Enter') { // Se il tasto premuto è invio
+                const ticketNumber = searchInput.value; // Ottieni il numero del ticket
+                if (ticketNumber === '' || !/^\d+$/.test(ticketNumber)) { // Se il numero del ticket è vuoto o non è nel formato numerico (00000)
+                    alert('Inserisci un numero di ticket valido'); // Restituisci un alert
+                } else { // Altrimenti
+                    window.location.href = `https://dae.4sparks-dev.it/apri_ticket?id=${ticketNumber}`; // Vai alla pagina del ticket
+                }
+            }
+        });
+        aggiornaDiv.appendChild(searchInput); // Inserimento dell'input nel div
 
     })();
 }
