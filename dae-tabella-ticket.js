@@ -2,7 +2,7 @@
 // @name         DAE with Super Power [DEV]
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system-dev
-// @version      1.6.0
+// @version      1.7.0
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -124,7 +124,7 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
                 }
             });
             // Trasforma l'ID in un bottone cliccabile che apre il ticket in una nuova scheda su Zendesk
-            const idCell = row.cells[6]; // Ottieni la cella relativa alla colonna ID
+            const idCell = row.cells[7]; // Ottieni la cella relativa alla colonna ID
             idCell.style.cursor = 'pointer'; // Imposta il cursore della cella a pointer
             idCell.innerHTML = `<button style="background-color: #008A00; color: #FFFFFF; padding: 5px 10px; border: none; border-radius: 4px; cursor: pointer;">${idCell.textContent}</button>`; // Modifica il contenuto della cella con un button
             const idButton = idCell.querySelector('button'); // Ottieni il button
