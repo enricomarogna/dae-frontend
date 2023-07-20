@@ -2,7 +2,7 @@
 // @name         DAE with Super Power
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system-dev
-// @version      1.7.0
+// @version      1.7.1
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -348,5 +348,13 @@ if (window.location.href === "https://dae.4sparks-dev.it/report/reportPerData") 
         var newRow = document.createElement('tr');
         newRow.innerHTML = '<td colspan="5"></td><td>' + totalHours + ' ore ' + remainingMinutes + ' minuti</td>';
         table.appendChild(newRow);
+
+        // Trasforma i ticket in button
+        var ticketNumbers = document.querySelectorAll('tbody tr td:nth-child(2)');
+        ticketNumbers.forEach(ticketNumber => {
+            var ticketNumberText = ticketNumber.textContent;
+            ticketNumber.innerHTML = '<a class="btn btn-primary btn-sm" href="https://dae.4sparks-dev.it/apri_ticket?id=' + ticketNumberText + '" target="_self">' + ticketNumberText + '</a>';
+        }
+        );
     })();
 }
