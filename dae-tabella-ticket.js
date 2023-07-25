@@ -2,7 +2,7 @@
 // @name         DAE with Super Power [DEV]
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system-dev
-// @version      1.7.3
+// @version      1.8.0
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -235,6 +235,7 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
         // Campo di ricerca ticket
         const searchInput = document.createElement('input'); // Creazione dell'input
         searchInput.classList.add('form-control', 'form-control-sm'); // Aggiunta delle classi CSS all'input
+        searchInput.style.height = '30px';
         searchInput.placeholder = 'Cerca ticket, esempio 12345'; // Aggiunta del placeholder all'input
         searchInput.style.float = 'right'; // Modifica il float dell'input in right
         searchInput.style.width = '250px'; // Modifica la larghezza dell'input in 200px
@@ -250,6 +251,45 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
             }
         });
         aggiornaDiv.appendChild(searchInput); // Inserimento dell'input nel div
+
+        /**
+         * Crea il dropdown e filtra le righe in base all'operatore selezionato
+         */
+        function createAndFilterDropdown() {
+            const operatorColumnIndex = 4; // Indice della quinta colonna (Operatore in carico)
+            const table = document.querySelector('table'); // Ottieni la tabella
+            const operatorData = Array.from(table.querySelectorAll(`tbody tr:not(:first-child) td:nth-child(${operatorColumnIndex})`)).map(cell => cell.textContent.trim()); // Ottieni tutti i dati della quinta colonna (Operatore in carico)
+            const uniqueOperators = [...new Set(operatorData)]; // Ottieni i dati univoci degli operatori
+            const dropdown = document.createElement('select'); // Creazione del dropdown
+            dropdown.id = 'operatori-dropdown'; // Assegnazione dell'id al dropdown
+            dropdown.classList.add('btn', 'btn-secondary', 'dropdown-toggle'); // Aggiunta delle classi CSS al dropdown
+            dropdown.style.float = 'right'; // Modifica il float del dropdown in right
+            dropdown.style.marginRight = '5px'; // Modifica il margin-right del dropdown in 5px
+            dropdown.addEventListener('change', function () { // Aggiunta dell'event listener change al dropdown
+                const selectedOperator = dropdown.value; // Ottieni l'operatore selezionato
+                if (selectedOperator === 'Tutti gli operatori') { // Se l'operatore selezionato è "Tutti gli operatori"
+                    table.querySelectorAll('tbody > tr').forEach(row => (row.style.display = '')); // Mostra tutte le righe
+                } else { // Altrimenti
+                    table.querySelectorAll('tbody > tr:not(:first-child)').forEach(row => { // Per ogni riga della tabella tranne la prima
+                        const operatorCell = row.querySelector(`td:nth-child(${operatorColumnIndex})`); // Ottieni la cella relativa alla colonna Operatore in carico
+                        const operator = operatorCell ? operatorCell.textContent.trim() : ''; // Ottieni l'operatore
+                        row.style.display = operator === selectedOperator ? '' : 'none'; // Mostra la riga se l'operatore è uguale a quello selezionato, altrimenti nascondi la riga
+                    });
+                }
+            });
+            const allOperatorsOption = document.createElement('option'); // Creazione dell'opzione
+            allOperatorsOption.textContent = 'Tutti gli operatori'; // Aggiunta del testo all'opzione
+            dropdown.appendChild(allOperatorsOption); // Inserimento dell'opzione nel dropdown
+            uniqueOperators.forEach(operator => { // Per ogni operatore
+                const option = document.createElement('option'); // Creazione dell'opzione
+                option.textContent = operator; // Aggiunta del testo all'opzione
+                dropdown.appendChild(option); // Inserimento dell'opzione nel dropdown
+            });
+            aggiornaDiv.appendChild(dropdown); // Inserimento del dropdown nel div
+        }
+        if (window.location.href === 'https://dae.4sparks-dev.it/') { // Se la pagina corrisponde a quella desiderata
+            createAndFilterDropdown(); // Chiama la funzione per creare il dropdown e filtrare le righe
+        }
 
     })();
 }
