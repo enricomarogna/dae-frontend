@@ -2,7 +2,7 @@
 // @name         DAE with Super Power [DEV]
 // @author       Enrico Marogna
 // @namespace    dae-ticketing-system-dev
-// @version      1.8.0
+// @version      1.8.1
 // @description  Potenzia l'usabilità del ticketing system DAE, software aziendale di proprietà di 4Sparks Srl
 // @match        https://dae.4sparks-dev.it/
 // @match        https://dae.4sparks-dev.it/*
@@ -256,7 +256,7 @@ if (window.location.href === "https://dae.4sparks-dev.it/") {
          * Crea il dropdown e filtra le righe in base all'operatore selezionato
          */
         function createAndFilterDropdown() {
-            const operatorColumnIndex = 4; // Indice della quinta colonna (Operatore in carico)
+            const operatorColumnIndex = 5; // Indice della quinta colonna (Operatore in carico)
             const table = document.querySelector('table'); // Ottieni la tabella
             const operatorData = Array.from(table.querySelectorAll(`tbody tr:not(:first-child) td:nth-child(${operatorColumnIndex})`)).map(cell => cell.textContent.trim()); // Ottieni tutti i dati della quinta colonna (Operatore in carico)
             const uniqueOperators = [...new Set(operatorData)]; // Ottieni i dati univoci degli operatori
